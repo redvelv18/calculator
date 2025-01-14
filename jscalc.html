@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another goddamn calculator im going to tweak the fuck out</title>
+</head>
+
+<body>
+
+    <h1> stupid shit</h1>
+    <input type="text" id="num1" placeholder="try putting 2">
+    <input type="text" id="op" placeholder="try putting +">
+    <input type="text" id="num2" placeholder="try putting 3">
+    <button type="button" id="solve"> Solve</button>
+    <div id="output"></div>
+
+    <script>
+        const num1Input = document.getElementById("num1");
+        const opInput = document.getElementById("op");
+        const num2Input = document.getElementById("num2");
+        const solveInput = document.getElementById("solve");
+        const outputThang = document.getElementById("output");
+
+        solveInput.addEventListener("click", handleClick);
+
+
+        function handleClick() {
+            let num1V = parseFloat(num1Input.value);
+            let num2V = parseFloat(num1Input.value);
+            let solveValue = solveInput.value;
+            let errorsArray = validateUserInput(num1V, num2V);
+            let result = calc(num1V, num2V, solveValue);
+
+            //------------------------divider--------//
+            if (errorsArray.length > 0) {
+                outputThang.innerHTML = errorsArray.join("<br>");
+                return;
+            }
+            outputThang.innerHTML = result;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
