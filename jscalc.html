@@ -33,7 +33,7 @@
             let errorsArray = validateUserInput(num1V, num2V);
             let result = calculate(num1V, num2V, solveValue);
 
-            //------------------------divider--------//
+            //------------------------divider-------------------//
             if (errorsArray.length > 0) {
                 outputThang.innerHTML = errorsArray.join("<br>");
                 return;
@@ -41,6 +41,7 @@
             outputThang.innerHTML = result;
         }
 
+        ///----------------------divier----------------------//
 
         function calculate(num1, num2, op) {
             switch (op) {
@@ -56,8 +57,21 @@
                     return "Unknown operation! Try again bro";
             }
         }
-        //---------divier-----------//
+        //----------------------divier-----------------------//
 
+        function validateUserInput(num1, num2, opr) {
+            let errors = [];
+            if (ifNaN(num1)) {
+                errors.push("Your first number is trippin");
+            }
+            if (ifNaN(num2)) {
+                errors.push("Your second number is trippin");
+            }
+            if (!["+", "-", "/", "*"].includes(opr)) {
+                errors.push("Your operator tweakin bro");
+            }
+            return errors;
+        }
     </script>
 
 </body>
