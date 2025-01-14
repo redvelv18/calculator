@@ -14,7 +14,7 @@
     <input type="text" id="op" placeholder="try putting +">
     <input type="text" id="num2" placeholder="try putting 3">
     <button type="button" id="solve"> Solve</button>
-    <div id="output"></div>
+    <p id="output"></p>
 
     <script>
         const num1Input = document.getElementById("num1");
@@ -28,10 +28,11 @@
 
         function handleClick() {
             let num1V = parseFloat(num1Input.value);
-            let num2V = parseFloat(num1Input.value);
-            let solveValue = solveInput.value;
-            let errorsArray = validateUserInput(num1V, num2V);
+            let num2V = parseFloat(num2Input.value);
+            let solveValue = opInput.value;
+            let errorsArray = validateUserInput(num1V, num2V, solveValue);
             let result = calculate(num1V, num2V, solveValue);
+
 
             //------------------------divider-------------------//
             if (errorsArray.length > 0) {
@@ -43,7 +44,7 @@
 
         ///----------------------divier----------------------//
 
-        function calculate(num1, num2, op) {
+        function calculate(n1, n2, op) {
             switch (op) {
                 case "+":
                     return n1 + n2;
@@ -59,19 +60,22 @@
         }
         //----------------------divier-----------------------//
 
-        function validateUserInput(num1, num2, opr) {
+        function validateUserInput(n1, n2, op) {
             let errors = [];
-            if (ifNaN(num1)) {
+            if (isNaN(n1)) {
                 errors.push("Your first number is trippin");
             }
-            if (ifNaN(num2)) {
+            if (isNaN(n2)) {
                 errors.push("Your second number is trippin");
             }
-            if (!["+", "-", "/", "*"].includes(opr)) {
+            if (!["+", "-", "/", "*"].includes(op)) {
                 errors.push("Your operator tweakin bro");
             }
             return errors;
         }
+
+        //----------------------divier-----------------------//
+
     </script>
 
 </body>
