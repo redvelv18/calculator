@@ -5,16 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Another goddamn calculator im going to tweak the fuck out</title>
+    <style>
+        * {
+            background-color: rgb(204, 216, 205);
+        }
+
+        #output {
+            font-size: 40px;
+            margin-left: 40px;
+            background-color: white;
+            margin-right: 1400px;
+        }
+
+        input {
+            background-color: aliceblue;
+            border: solid rgb(23, 43, 18);
+        }
+
+        button {
+            background-color: rgb(77, 97, 76);
+            color: aliceblue;
+        }
+
+        title {
+            color: rgb(23, 43, 18);
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1> stupid shit by the name of a calculator</h1>
+    <h1>Calculator on 5 grams of cocaine and a shot of fentanyl</h1>
     <input type="text" id="num1" placeholder="try putting 2">
     <input type="text" id="op" placeholder="try putting +">
     <input type="text" id="num2" placeholder="try putting 3">
     <button type="button" id="solve"> Solve</button>
     <p id="output"></p>
+
+    <!-------------------------- div --------------------->
 
     <script>
         const num1Input = document.getElementById("num1");
@@ -25,7 +54,7 @@
 
         solveInput.addEventListener("click", handleClick);
 
-
+        ///----------------------div----------------------//
         function handleClick() {
             let num1V = parseFloat(num1Input.value);
             let num2V = parseFloat(num2Input.value);
@@ -34,15 +63,15 @@
             let result = calculate(num1V, num2V, solveValue);
 
 
-            //------------------------divider-------------------//
+            //------------------------div-------------------//
             if (errorsArray.length > 0) {
                 outputThang.innerHTML = errorsArray.join("<br>");
                 return;
             }
-            outputThang.innerHTML = result;
+            outputThang.innerHTML = "The answer is: " + result;
         }
 
-        ///----------------------divier----------------------//
+        ///----------------------div----------------------//
 
         function calculate(n1, n2, op) {
             switch (op) {
@@ -58,7 +87,7 @@
                     return "Unknown operation! Try again bro";
             }
         }
-        //----------------------divier-----------------------//
+        //----------------------div-----------------------//
 
         function validateUserInput(n1, n2, op) {
             let errors = [];
@@ -74,7 +103,7 @@
             return errors;
         }
 
-        //----------------------divier-----------------------//
+        //----------------------div-----------------------//
 
     </script>
 
